@@ -1,0 +1,657 @@
+CAUTION: This email originated from outside the MYOB organisation. Do not click links or open attachments unless you recognize the sender and know the content is safe.
+
+
+<?php
+//test to  ensure data has been inputted to the form
+//if not, return to the form
+
+if(($_POST['car']) && ($_POST['ratio'])
+||
+(!$_POST['car']) && (!$_POST['ratio'])
+||
+(!$_POST['spur'])
+||
+(!$_POST['pinion'])
+||
+(!$_POST['tyre']))
+{
+header("Location: http://localhost/files/gears.php");
+exit;
+}
+?>
+<html>
+<head>
+<title>Gears</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<style type="text/css">
+p.c {font-size:20pt; font-weight:bold; color:#BE2625; font-style:italic;}
+</style>
+
+<script language="Javascript">
+function printPage()
+{
+if(window.print)
+window.print()
+else
+alert("Sorry, your browser doesn\'t support this feature");
+}
+</script>
+</head>
+
+<body>
+<?php
+$whichcar=$_POST['car'];
+//echo $whichcar;
+switch ($whichcar) {
+  
+  case ' Pan Car (10th or 12th scale)':
+    $ratio="1";
+$spur="";
+    break;
+
+  case 'Airborne-ModelsMX 707r':
+    $ratio="2.13";
+$spur="";
+break;
+
+  case 'Alex Barracuda R2':
+    $ratio="2.43";
+  $spur="";
+    break;
+
+  case 'Associated B4':
+    $ratio="2.6";
+    $spur="";
+    break;
+
+  case 'Associated RC18MT':
+    $ratio="2.5";
+    $spur="";
+    break;
+
+  case 'Associated TC3':
+    $ratio="2.5";
+    $spur="";
+    break;
+
+  case 'Associated TC4':
+    $ratio="2.5";
+    $spur="";
+    break;
+ 
+  case 'Atlas YM34':
+    $ratio="2.31";
+    $spur="";
+    break;
+
+ case 'Corally Assassin (1 belt)':
+    $ratio="1";
+    $spur="";
+    break;
+
+  case 'Corally Assassin (2 belt)':
+    $ratio="2";
+    $spur="";
+    break;
+
+  case 'Corally C4':
+    $ratio="1.88";
+
+    $spur="";
+
+    break;
+
+  case 'Corally RDX':
+    $ratio="2";
+
+    $spur="";
+
+    break;
+
+  case 'Corally SP12M':
+    $ratio="1";
+
+    $spur="";
+
+    break;
+
+  case 'Evader BX':
+    $ratio="3.2";
+
+    $spur="";
+
+    break;
+
+  case 'HoBao Hyper 10':
+    $ratio="2.13";
+
+    $spur="";
+
+    break;
+
+  case 'Hong Nor OB4 (16T)':
+    $ratio="2.1875";
+
+    $spur="";
+
+    break;
+
+  case 'Hong Nor OB4 (17T)':
+    $ratio="2.059";
+
+    $spur="";
+
+    break;
+
+  case 'Hotbodies Cyclone':
+    $ratio="2.4375";
+
+    $spur="";
+
+    break;
+
+  case 'HPI  super nitro rally':
+    $ratio="3.69";
+
+    $spur="";
+
+    break;
+
+  case 'HPI Micro RS4':
+    $ratio="1";
+
+    $spur="58";
+
+    break;
+
+  case 'HPI Nitro RS4':
+    $ratio="2.166";
+
+    $spur="";
+
+    break;
+
+  case 'HPI Pro 2':
+    $ratio="2.1";
+
+    $spur="";
+
+    break;
+
+  case 'HPI Pro 3':
+    $ratio="2.25";
+
+    $spur="";
+
+    break;
+
+  case 'HPI Pro 4':
+    $ratio="2.4375";
+
+    $spur="";
+
+    break;
+
+  case 'HPI RS4':
+    $ratio="2.13";
+
+    $spur="";
+
+    break;
+
+  case 'HPI Sprint & Sprint GT':
+    $ratio="2.1";
+
+    $spur="";
+
+    break;
+
+  case 'HPI Sprint2':
+    $ratio="2.4375";
+
+    $spur="";
+
+    break;
+
+  case 'Kyosho KX-ONE':
+    $ratio="1.95";
+
+    $spur="";
+
+    break;
+
+  case 'Kyosho Pureten Alpha EP2':
+    $ratio="3.36";
+
+    $spur="";
+
+    break;
+
+  case 'Kyosho TF2':
+    $ratio="2.06";
+
+    $spur="";
+
+    break;
+
+  case 'Kyosho TF3':
+    $ratio="2.21";
+
+    $spur="";
+
+    break;
+
+  case 'Kyosho TF4-R':
+    $ratio="2.06";
+
+    $spur="";
+
+    break;
+
+  case 'Losi JRX-S':
+    $ratio="1.83";
+
+    $spur="";
+
+    break;
+
+  case 'Losi Street Weapon':
+    $ratio="2.3";
+
+    $spur="";
+
+    break;
+
+  case 'Losi XXX BK2':
+    $ratio="2.56";
+
+    $spur="";
+
+    break;
+
+  case 'Losi XXX-S':
+    $ratio="1.83";
+
+    $spur="";
+
+    break;
+
+  case 'Losi, XXXT':
+    $ratio="2.43";
+
+    $spur="";
+
+    break;
+
+  case 'RCLab 7even w 15/32 pulleys':
+    $ratio="2.133";
+
+    $spur="";
+
+    break;
+
+  case 'RCLab 7even w 17/37 pulleys':
+    $ratio="2.176";
+
+    $spur="";
+
+    break;
+
+  case 'Robitronic ETC Sport':
+    $ratio="2.846";
+
+    $spur="";
+
+    break;
+
+  case 'Robitronic ETC V1':
+    $ratio="1.59";
+
+    $spur="";
+
+    break;
+
+  case 'Schumacher MI2 (17 Pulley)':
+    $ratio="2.12";
+
+    $spur="";
+
+    break;
+
+  case 'Schumacher MI2 (20 Pulley)':
+    $ratio="1.8";
+
+    $spur="";
+
+    break;
+
+  case 'Schumacher Mission 1.8:1 option':
+    $ratio="1.8";
+
+    $spur="";
+
+    break;
+
+  case 'Schumacher Mission 2.1:1 option':
+    $ratio="2.1";
+
+    $spur="";
+
+    break;
+
+  case 'Schumacher SST':
+    $ratio="2.0";
+
+    $spur="";
+
+    break;
+
+  case 'Schumaches Axis 2':
+    $ratio="2";
+
+    $spur="";
+
+    break;
+
+  case 'Speed Demon':
+    $ratio="1.83";
+
+    $spur="";
+
+    break;
+
+  case 'Tamiya 415':
+    $ratio="2.187";
+
+    $spur="";
+
+    break;
+
+  case 'Tamiya 415 MSX':
+    $ratio="2.187";
+
+    $spur="";
+
+    break;
+
+  case 'Tamiya F201':
+    $ratio="2.6";
+
+    $spur="";
+
+    break;
+
+  case 'Tamiya Grasshopper':
+    $ratio="2.941.";
+
+    $spur="";
+
+    break;
+
+  case 'Tamiya TA03':
+    $ratio="2.68.";
+
+    $spur="";
+
+    break;
+
+  case 'Tamiya TA04':
+    $ratio="2.133";
+
+    $spur="";
+
+    break;
+
+  case 'Tamiya TA05':
+    $ratio="2.25";
+
+    $spur="";
+
+    break;
+
+  case 'Tamiya TB Evo 2':
+    $ratio="2.6";
+
+    $spur="";
+
+    break;
+
+  case 'Tamiya TB Evo 3':
+    $ratio="2.6";
+
+    $spur="";
+
+    break;
+
+  case 'Tamiya TB Evo 4':
+    $ratio="2.294";
+
+    $spur="";
+
+    break;
+
+  case 'Tamiya TB01 EVO 1':
+    $ratio="2.6";
+
+    $spur="";
+
+    break;
+
+  case 'Tamiya TT-01':
+    $ratio="2.6";
+
+    $spur="";
+
+    break;
+
+  case 'Tenth Tech. T1':
+    $ratio="3";
+
+    $spur="";
+
+    break;
+
+  case 'Traxxas Rustler (Electric)':
+    $ratio="2.72";
+
+    $spur="";
+
+    break;
+
+  case 'Trinity T-spec':
+    $ratio="2.82";
+
+    $spur="";
+
+    break;
+
+  case 'Xpress GTO':
+    $ratio="2.13";
+
+    $spur="";
+
+    break;
+
+  case 'Xpress MK3':
+    $ratio="2.13";
+
+    $spur="";
+
+    break;
+
+  case 'Xray T1':
+    $ratio="2.125";
+
+    $spur="";
+
+    break;
+
+  case 'Xray T1 FK 05':
+    $ratio="1.70";
+
+    $spur="";
+
+    break;
+
+  case 'Xray T1 low ratio option':
+    $ratio="1.77";
+
+    $spur="";
+
+    break;
+
+  case 'Xray T1 Racer':
+    $ratio="2.125";
+
+    $spur="";
+
+    break;
+
+  case 'Xray T2':
+    $ratio="1.7";
+
+    $spur="";
+
+    break;
+
+  case 'Xray Team car':
+    $ratio="1.771";
+
+    $spur="";
+
+    break;
+
+  case 'Yokomo LCG':
+    $ratio="2.353";
+
+    $spur="";
+
+    break;
+
+  case 'Yokomo MR4-TC BD':
+    $ratio="2.0";
+
+    $spur="";
+
+    break;
+
+  case 'Yokomo MR4TC':
+    $ratio="2.2";
+
+    $spur="";
+
+    break;
+
+  case 'Yokomo MR4TC SD':
+    $ratio="2.353";
+
+    $spur="";
+
+    break;
+
+  case 'Yokomo YR4':
+    $ratio="2.2";
+
+    $spur="";
+
+    break;
+
+  default:
+    $ratio = $_POST['ratio'];
+    break;
+//if(!$_POST['ratio']) {
+// $ratio = $_POST['car'];
+// }
+// else {
+// $ratio = $_POST['ratio'];
+}
+//echo $ratio.'<br>';
+$spur = $_POST['spur'];
+//echo $spur.'<br>';
+$pinion = $_POST['pinion'];
+//echo $pinion.'<br>';
+$tyre = $_POST['tyre'];
+//echo $tyre.'<br>';
+//$pi = 3.141592654;
+$gear = ($spur/$pinion*$ratio);
+//echo $gear.'<br>';
+$rollout = ($tyre*pi()/$gear);
+//echo $rollout;
+echo '<p class="c" align="center">'.$whichcar.' Gear Ratio Chart<br><br>Transmission Ratio: '.$ratio.'</p><br><br>';
+echo '<table border="2" bordercolor="#000000" cellpadding="2" cellspacing="2" align="center" width="75%"><tr>';
+echo '<tr><td>&nbsp;</td><td><strong>';
+echo ($spur-3).'</strong></td>';
+echo '<td><strong>'.($spur-2).'</strong></td>';
+echo '<td><strong>';
+echo ($spur-1).'</strong></td>';
+echo '<td><strong>';
+echo ($spur).'</strong></td>';
+echo '<td><strong>';
+echo ($spur+1).'</strong></td>';
+echo '<td><strong>';
+echo ($spur+2).'</strong></td>';
+echo '<td><strong>';
+echo ($spur+3).'</strong></td>';
+echo '</tr><tr><td><strong>'.($pinion-3).'</strong></td>';
+echo '<td>'.number_format($tyre*pi()/(($spur-3)/($pinion-3)*$ratio),2).'</td>';
+echo '<td>'.number_format($tyre*pi()/(($spur-2)/($pinion-3)*$ratio),2).'</td>';
+echo '<td>'.number_format($tyre*pi()/(($spur-1)/($pinion-3)*$ratio),2).'</td>';
+echo '<td>'.number_format($tyre*pi()/(($spur)/($pinion-3)*$ratio),2).'</td>';
+echo '<td>'.number_format($tyre*pi()/(($spur+1)/($pinion-3)*$ratio),2).'</td>';
+echo '<td>'.number_format($tyre*pi()/(($spur+2)/($pinion-3)*$ratio),2).'</td>';
+echo '<td>'.number_format($tyre*pi()/(($spur+3)/($pinion-3)*$ratio),2).'</td>';
+echo '</tr><tr><td><strong>'.($pinion-2).'</strong></td>';
+echo '<td>'.number_format($tyre*pi()/(($spur-3)/($pinion-2)*$ratio),2).'</td>';
+echo '<td>'.number_format($tyre*pi()/(($spur-2)/($pinion-2)*$ratio),2).'</td>';
+echo '<td>'.number_format($tyre*pi()/(($spur-1)/($pinion-2)*$ratio),2).'</td>';
+echo '<td>'.number_format($tyre*pi()/(($spur)/($pinion-2)*$ratio),2).'</td>';
+echo '<td>'.number_format($tyre*pi()/(($spur+1)/($pinion-2)*$ratio),2).'</td>';
+echo '<td>'.number_format($tyre*pi()/(($spur+2)/($pinion-2)*$ratio),2).'</td>';
+echo '<td>'.number_format($tyre*pi()/(($spur+3)/($pinion-2)*$ratio),2).'</td>';
+echo '</tr><tr><td><strong>'.($pinion-1).'</strong></td>';
+echo '<td>'.number_format($tyre*pi()/(($spur-3)/($pinion-1)*$ratio),2).'</td>';
+echo '<td>'.number_format($tyre*pi()/(($spur-2)/($pinion-1)*$ratio),2).'</td>';
+echo '<td>'.number_format($tyre*pi()/(($spur-1)/($pinion-1)*$ratio),2).'</td>';
+echo '<td>'.number_format($tyre*pi()/(($spur)/($pinion-1)*$ratio),2).'</td>';
+echo '<td>'.number_format($tyre*pi()/(($spur+1)/($pinion-1)*$ratio),2).'</td>';
+echo '<td>'.number_format($tyre*pi()/(($spur+2)/($pinion-1)*$ratio),2).'</td>';
+echo '<td>'.number_format($tyre*pi()/(($spur+3)/($pinion-1)*$ratio),2).'</td>';
+echo '</tr><tr><td><strong>'.($pinion).'</strong></td>';
+echo '<td>'.number_format($tyre*pi()/(($spur-3)/($pinion)*$ratio),2).'</td>';
+echo '<td>'.number_format($tyre*pi()/(($spur-2)/($pinion)*$ratio),2).'</td>';
+echo '<td>'.number_format($tyre*pi()/(($spur-1)/($pinion)*$ratio),2).'</td>';
+echo '<td><strong>'.number_format($tyre*pi()/(($spur)/($pinion)*$ratio),2).'</strong></td>';
+echo '<td>'.number_format($tyre*pi()/(($spur+1)/($pinion)*$ratio),2).'</td>';
+echo '<td>'.number_format($tyre*pi()/(($spur+2)/($pinion)*$ratio),2).'</td>';
+echo '<td>'.number_format($tyre*pi()/(($spur+3)/($pinion)*$ratio),2).'</td>';
+echo '</tr><tr><td><strong>'.($pinion+1).'</strong></td>';
+echo '<td>'.number_format($tyre*pi()/(($spur-3)/($pinion+1)*$ratio),2).'</td>';
+echo '<td>'.number_format($tyre*pi()/(($spur-2)/($pinion+1)*$ratio),2).'</td>';
+echo '<td>'.number_format($tyre*pi()/(($spur-1)/($pinion+1)*$ratio),2).'</td>';
+echo '<td>'.number_format($tyre*pi()/(($spur)/($pinion+1)*$ratio),2).'</td>';
+echo '<td>'.number_format($tyre*pi()/(($spur+1)/($pinion+1)*$ratio),2).'</td>';
+echo '<td>'.number_format($tyre*pi()/(($spur+2)/($pinion+1)*$ratio),2).'</td>';
+echo '<td>'.number_format($tyre*pi()/(($spur+3)/($pinion+1)*$ratio),2).'</td>';
+echo '</tr><tr><td><strong>'.($pinion+2).'</strong></td>';
+echo '<td>'.number_format($tyre*pi()/(($spur-3)/($pinion+2)*$ratio),2).'</td>';
+echo '<td>'.number_format($tyre*pi()/(($spur-2)/($pinion+2)*$ratio),2).'</td>';
+echo '<td>'.number_format($tyre*pi()/(($spur-1)/($pinion+2)*$ratio),2).'</td>';
+echo '<td>'.number_format($tyre*pi()/(($spur)/($pinion+2)*$ratio),2).'</td>';
+echo '<td>'.number_format($tyre*pi()/(($spur+1)/($pinion+2)*$ratio),2).'</td>';
+echo '<td>'.number_format($tyre*pi()/(($spur+2)/($pinion+2)*$ratio),2).'</td>';
+echo '<td>'.number_format($tyre*pi()/(($spur+3)/($pinion+2)*$ratio),2).'</td>';
+echo '</tr><tr><td><strong>'.($pinion+3).'</strong></td>';
+echo '<td>'.number_format($tyre*pi()/(($spur-3)/($pinion+3)*$ratio),2).'</td>';
+echo '<td>'.number_format($tyre*pi()/(($spur-2)/($pinion+3)*$ratio),2).'</td>';
+echo '<td>'.number_format($tyre*pi()/(($spur-1)/($pinion+3)*$ratio),2).'</td>';
+echo '<td>'.number_format($tyre*pi()/(($spur)/($pinion+3)*$ratio),2).'</td>';
+echo '<td>'.number_format($tyre*pi()/(($spur+1)/($pinion+3)*$ratio),2).'</td>';
+echo '<td>'.number_format($tyre*pi()/(($spur+2)/($pinion+3)*$ratio),2).'</td>';
+echo '<td>'.number_format($tyre*pi()/(($spur+3)/($pinion+3)*$ratio),2).'</td>';
+echo '</tr></table>';
+
+?>
+<br>
+<form><input type="button" value="Print Page" onClick="printPage()"><input type="button" name="btnBack" value="Back" onClick="window.history.back()"><input type="button" value="Close Page" onClick="location.href='http://cc09.castlehillraceway.com/online/v2/'"></form>
+</body>
+</html>
